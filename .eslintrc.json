@@ -1,7 +1,8 @@
 {
   "parserOptions": {
     "project": "./tsconfig.json",
-    "ecmaFeatures.jsx": true
+    "ecmaFeatures.jsx": true,
+    "tsconfigRootDir": "."
   },
   "parser": "@typescript-eslint/parser",
   "plugins": [
@@ -20,6 +21,8 @@
     "quotes": [
       "error",
       "single"
-    ]
+    ],
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/no-useless-constructor": "off"
   }
 }
