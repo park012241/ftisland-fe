@@ -1,4 +1,8 @@
 {
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaFeatures.jsx": true
+  },
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint"
