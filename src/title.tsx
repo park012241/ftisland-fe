@@ -1,7 +1,7 @@
 import React, {Component, ReactNode} from 'react';
 
 export interface ITitleProps {
-    value: number;
+    value: number | string;
     unit: string;
 }
 

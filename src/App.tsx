@@ -4,8 +4,16 @@ import {Title} from './title';
 enum Unit {
     gram = 'g',
     kilo = 'Kg',
-    ton = '톤',
+    ton = 't',
+    kiloTon = 'Kt'
 }
+
+const units: Unit[] = [
+    Unit.gram,
+    Unit.kilo,
+    Unit.ton,
+    Unit.kiloTon,
+];
 
 interface IAppProps {
     interval: number;
@@ -13,7 +21,7 @@ interface IAppProps {
 }
 
 interface IAppState {
-    value: number;
+    value: number | string;
     unit: Unit;
 }
 
@@ -32,9 +40,14 @@ export class App extends React.Component<IAppProps, IAppState> {
 
     private async update(): Promise<void> {
         const value = await this.props.function();
-        this.setState({
-            value,
-        });
+        let index = 0;
+        for (let i = value; i > 1000; i /= 1000) {
+            index++;
+        }
+        this.setState(() => ({
+            value: (value / (1000 ** index)).toFixed(index === 0 ? 0 : 2),
+            unit: units[index],
+        }));
     }
 
     public render(): React.ReactNode {

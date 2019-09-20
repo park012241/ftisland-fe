@@ -4,7 +4,10 @@ import './index.css';
 import {App} from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App interval={1000} function={(): number => {
-    return 10;
+let value = 0;
+
+ReactDOM.render(<App interval={10} function={(): number => {
+    value += 100;
+    return value;
 }}/>, document.getElementById('root'));
 serviceWorker.register();
